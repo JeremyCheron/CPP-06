@@ -15,10 +15,8 @@ CXXFLAGS = -Wall -Werror -Wextra -Iincludes -std=c++98 -g
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/ScalarConverter.cpp $(SRC_DIR)/printers.cpp \
-		$(SRC_DIR)/wich.cpp
-OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/ScalarConverter.o $(OBJ_DIR)/printers.o \
-		$(OBJ_DIR)/wich.o
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/ScalarConverter.cpp
+OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/ScalarConverter.o
 
 NAME = ex00
 

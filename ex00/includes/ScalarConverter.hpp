@@ -1,60 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 09:56:01 by jcheron           #+#    #+#             */
-/*   Updated: 2025/04/03 08:10:00 by jcheron          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#pragma once
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <iomanip>
-#include <exception>
+#include <string>
 #include <cstdlib>
-#include <limits>
+#include <climits>
 #include <cmath>
+#include <iomanip>
+#include <cfloat>
 
-#define MIN_INT std::numeric_limits<int>::min()
-#define MAX_INT std::numeric_limits<int>::max()
-#define MIN_FLOAT std::numeric_limits<float>::min()
-#define MAX_FLOAT std::numeric_limits<float>::max()
-#define MIN_DOUBLE std::numeric_limits<double>::min()
-#define MAX_DOUBLE std::numeric_limits<double>::max()
+class ScalarConverter {
+private:
+    ScalarConverter();
+    ScalarConverter(const ScalarConverter& other);
+    ScalarConverter& operator=(const ScalarConverter& other);
+    ~ScalarConverter();
 
-enum e_type
-{
-	SPECIAL,
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	INVALID = -1
+    static bool isChar(const std::string& str);
+    static bool isInt(const std::string& str);
+    static bool isFloat(const std::string& str);
+    static bool isDouble(const std::string& str);
+    static bool isSpecial(const std::string& str);
+
+    static void printChar(char c);
+    static void printInt(int i);
+    static void printFloat(float f);
+    static void printDouble(double d);
+    static void printSpecial(const std::string& str);
+
+public:
+    static void convert(const std::string& str);
 };
 
-class ScalarConverter
-{
-	private:
-
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &other);
-		~ScalarConverter();
-
-		ScalarConverter &operator=(const ScalarConverter &other);
-
-	public:
-
-		static void	convert(const std::string &str);
-
-};
-
-e_type	wich(const std::string &str);
-void	convertChar(char c);
-void	convertInt(const std::string &str);
-void	convertFloat(const std::string &str);
-void	convertDouble(const std::string &str);
-void	printSpecial(const std::string &str);
+#endif 
